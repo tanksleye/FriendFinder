@@ -11,18 +11,6 @@ app.use(express.json());
 
 
 
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
-  });
-app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
-    // res.json(table);
-  });
-  
-  app.get("/api/survey", function(req, res) {
-    return res.json(table);
-  });
-
 
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
