@@ -46,7 +46,7 @@
 
                 <div class="row">
                     <div class="form-group col-md-2">
-                      <select class="form-control" id="exampleFormControlSelect1">
+                      <select class="form-control" id="question1">
                         <option selected>Select Option</option>
                         <option>1 (Strongly Disagree)</option>
                         <option>2</option>
@@ -67,7 +67,7 @@
     
                     <div class="row">
                         <div class="form-group col-md-2">
-                          <select class="form-control" id="exampleFormControlSelect1">
+                          <select class="form-control" id="question2">
                             <option selected>Select Option</option>
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
@@ -87,7 +87,7 @@
         
                         <div class="row">
                             <div class="form-group col-md-2">
-                              <select class="form-control" id="exampleFormControlSelect1">
+                              <select class="form-control" id="question3">
                                 <option selected>Select Option</option>
                                 <option>1 (Strongly Disagree)</option>
                                 <option>2</option>
@@ -107,7 +107,7 @@
             
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                  <select class="form-control" id="exampleFormControlSelect1">
+                                  <select class="form-control" id="question4">
                                     <option selected>Select Option</option>
                                     <option>1 (Strongly Disagree)</option>
                                     <option>2</option>
@@ -127,7 +127,7 @@
                 
                                 <div class="row">
                                     <div class="form-group col-md-2">
-                                      <select class="form-control" id="exampleFormControlSelect1">
+                                      <select class="form-control" id="question5">
                                         <option selected>Select Option</option>
                                         <option>1 (Strongly Disagree)</option>
                                         <option>2</option>
@@ -147,7 +147,7 @@
                     
                                     <div class="row">
                                         <div class="form-group col-md-2">
-                                          <select class="form-control" id="exampleFormControlSelect1">
+                                          <select class="form-control" id="question6">
                                             <option selected>Select Option</option>
                                             <option>1 (Strongly Disagree)</option>
                                             <option>2</option>
@@ -167,7 +167,7 @@
                         
                                         <div class="row">
                                             <div class="form-group col-md-2">
-                                              <select class="form-control" id="exampleFormControlSelect1">
+                                              <select class="form-control" id="question7">
                                                 <option selected>Select Option</option>
                                                 <option>1 (Strongly Disagree)</option>
                                                 <option>2</option>
@@ -187,7 +187,7 @@
                             
                                             <div class="row">
                                                 <div class="form-group col-md-2">
-                                                  <select class="form-control" id="exampleFormControlSelect1">
+                                                  <select class="form-control" id="question8">
                                                     <option selected>Select Option</option>
                                                     <option>1 (Storngly Disagree)</option>
                                                     <option>2</option>
@@ -207,7 +207,7 @@
                                 
                                                 <div class="row">
                                                     <div class="form-group col-md-2">
-                                                      <select class="form-control" id="exampleFormControlSelect1">
+                                                      <select class="form-control" id="question9">
                                                         <option selected>Select Option</option>
                                                         <option>1 (Strongly Disagree)</option>
                                                         <option>2</option>
@@ -227,7 +227,7 @@
                                     
                                                     <div class="row">
                                                         <div class="form-group col-md-2">
-                                                          <select class="form-control" id="exampleFormControlSelect1">
+                                                          <select class="form-control" id="question10">
                                                             <option selected>Select Option</option>
                                                             <option>1 (Strongly Disagree)</option>
                                                             <option>2</option>
@@ -244,23 +244,55 @@
 
              <footer class="footer">
         <div class="container">
-            <p><a href="/api/friends">API Frineds List</a> | <a href="/api/waitlist">GitHub Repo</a></p>
+            <p><a href="/api/friends">API Frineds List</a> | <a href="https://github.com/tanksleye/FriendFinder">GitHub Repo</a></p>
         </div>
     </footer>
         
     </div>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         $(".btn").on("click", function(event) {
             event.preventDefault();
-            var submitSurvey = $("#submit-btn")
-        };
+            
+            var answers = {
+                question1: $("#question1").val(),
+                question2: $("#question2").val(),
+                question3: $("#question3").val(),
+                question4: $("#question4").val(),
+                question5: $("#question5").val(),
+                question6: $("#question6").val(),
+                question7: $("#question7").val(),
+                question8: $("#question8").val(),
+                question9: $("#question9").val(),
+                question10: $("#question10").val()
+            };
 
-        $.post("/api/friends")
+            console.log(answers);
+        
+        $.post("/api/friends", answers, function(data){
+
+            if (data) {
+                alert("You have succefully answered the survey!");
+            }
+            else {
+                alert("Make sure you have answer all the questions");
+            }
+
+             $("#question1").val("");
+             $("#question2").val("");
+             $("#question3").val("");
+             $("#question4").val("");
+             $("#question5").val("");
+             $("#question6").val("");
+             $("#question7").val("");
+             $("#question8").val("");
+             $("#question9").val("");
+             $("#question10").val("");
+        });
         
         
-        );
-    </script> -->
+    });
+    </script>
 </body>
 </html>
 
